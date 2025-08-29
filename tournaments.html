@@ -1,60 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tournaments — Crimson Crown</title>
-<link rel="stylesheet" href="assets/css/style.css" />
-<script defer src="assets/js/main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournaments — Crimson Crown</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/include.js" defer></script>
 </head>
 <body>
-<header>
-<img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
-<?php include 'includes/navbar.php'; ?>
-</header>
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
+    <div data-include="includes/navbar.html"></div>
+  </header>
 
+  <section class="page-header">
+    <h1>Tournaments</h1>
+    <p>Explore ongoing and past competitions</p>
+  </section>
 
-<section class="page-header">
-<h1>Tournaments</h1>
-<p>Active, upcoming, and previous events.</p>
-</section>
+  <div class="content">
+    <h2>Ongoing Tournaments</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>Crimson Scrims Weekly #12</td>
+        <td>Aug 28, 2025</td>
+        <td>Live</td>
+      </tr>
+    </table>
 
+    <h2>Past Tournaments</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Winner</th>
+        <th>Date</th>
+      </tr>
+      <tr>
+        <td>Crimson Crown Championship S1</td>
+        <td>Team Hydra</td>
+        <td>July 2025</td>
+      </tr>
+    </table>
+  </div>
 
-<section class="content">
-<h2>Active</h2>
-<table>
-<thead>
-<tr><th>Name</th><th>Game</th><th>Status</th><th>Link</th></tr>
-</thead>
-<tbody>
-<tr><td>Crimson Clash S1</td><td>BGMI</td><td>Live</td><td><a href="registration.php">Register</a></td></tr>
-</tbody>
-</table>
-
-
-<h2>Upcoming</h2>
-<table>
-<thead>
-<tr><th>Name</th><th>Game</th><th>Starts</th><th>Notes</th></tr>
-</thead>
-<tbody>
-<tr><td>Clan Wars #12</td><td>BGMI</td><td>Sep 15</td><td>Open qualifiers</td></tr>
-</tbody>
-</table>
-
-
-<h2>Previous</h2>
-<table>
-<thead>
-<tr><th>Name</th><th>Game</th><th>Winners</th><th>Archive</th></tr>
-</thead>
-<tbody>
-<tr><td>Monsoon Cup</td><td>BGMI</td><td>Team A</td><td><a href="#">Results</a></td></tr>
-</tbody>
-</table>
-</section>
-
-
-<?php include 'includes/footer.php'; ?>
+  <div data-include="includes/footer.html"></div>
 </body>
 </html>

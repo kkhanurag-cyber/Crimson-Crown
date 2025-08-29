@@ -1,63 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Leaderboard — Crimson Crown</title>
-<link rel="stylesheet" href="assets/css/style.css" />
-<script defer src="assets/js/main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard — Crimson Crown</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/include.js" defer></script>
 </head>
 <body>
-<header>
-<img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
-<?php include 'includes/navbar.php'; ?>
-</header>
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
+    <div data-include="includes/navbar.html"></div>
+  </header>
 
+  <section class="page-header">
+    <h1>Leaderboard</h1>
+    <p>Top teams of the week</p>
+  </section>
 
-<section class="page-header">
-<h1>Weekly Leaderboard</h1>
-<p>Auto-updated standings.</p>
-</section>
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Team</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Team Phoenix</td>
+      <td>20</td>
+      <td>18</td>
+      <td>25</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Shadow Hunters</td>
+      <td>18</td>
+      <td>20</td>
+      <td>22</td>
+      <td>60</td>
+    </tr>
+  </table>
 
-
-<section class="content">
-<table>
-<thead>
-<tr>
-<th>Rank</th><th>Team</th><th>R1</th><th>R2</th><th>R3</th><th>Total</th>
-</tr>
-</thead>
-<tbody id="leaderboard-body">
-<!-- Will be filled by php/leaderboard.php via fetch() -->
-</tbody>
-</table>
-</section>
-
-
-<script>
-// Fetch JSON rows and render into table
-fetch('php/leaderboard.php')
-.then(r => r.json())
-.then(rows => {
-const tbody = document.getElementById('leaderboard-body');
-tbody.innerHTML = rows.map((r, i) => `
-<tr>
-<td>${i + 1}</td>
-<td>${r.team}</td>
-<td>${r.r1}</td>
-<td>${r.r2}</td>
-<td>${r.r3}</td>
-<td><strong>${r.total}</strong></td>
-</tr>
-`).join('');
-})
-.catch(() => {
-const tbody = document.getElementById('leaderboard-body');
-tbody.innerHTML = `<tr><td colspan="6">Unable to load leaderboard.</td></tr>`;
-});
-</script>
-
-
-<?php include 'includes/footer.php'; ?>
+  <div data-include="includes/footer.html"></div>
 </body>
 </html>

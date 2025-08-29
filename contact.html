@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact — Crimson Crown</title>
-<link rel="stylesheet" href="assets/css/style.css" />
-<script defer src="assets/js/main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Crimson Crown</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/include.js" defer></script>
 </head>
 <body>
-<header>
-<img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
-<?php include 'includes/navbar.php'; ?>
-</header>
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
+    <div data-include="includes/navbar.html"></div>
+  </header>
 
+  <section class="page-header">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you</p>
+  </section>
 
-<section class="page-header">
-<h1>Contact Us</h1>
-<p>Have questions? Reach out and we’ll get back to you.</p>
-</section>
+  <div class="content">
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </div>
 
-
-<section class="content">
-<?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
-<div class="alert success">Thanks! Your message was sent.</div>
-<?php elseif (isset($_GET['status']) && $_GET['status'] === 'err'): ?>
-<div class="alert error">Sorry, something went wrong. Try again.</div>
-<?php endif; ?>
-
-
-<form class="contact-form" method="post" action="php/contact.php">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" placeholder="Your Message" required></textarea>
-<button class="btn" type="submit">Send Message</button>
-</form>
-</section>
-
-
-<?php include 'includes/footer.php'; ?>
+  <div data-include="includes/footer.html"></div>
 </body>
 </html>
