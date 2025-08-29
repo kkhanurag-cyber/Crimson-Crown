@@ -20,66 +20,61 @@ header .logo {
   height: 50px;
 }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: crimson;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: white;
-}
-/* Navbar Container */
+/* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  background: #111;
+  padding: 10px 20px;
 }
 
-/* Nav links inside the navbar */
-.navbar .nav-links {
-  display: flex;      /* forces horizontal */
-  flex-direction: row;
-  gap: 20px;
+.nav-links {
   list-style: none;
+  display: flex;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
 
-/* Ensure list items don't stack */
-.navbar .nav-links li {
-  display: inline-flex;
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-/* Hamburger icon (hidden on desktop) */
+.nav-links li a:hover {
+  color: #e63946; /* Crimson red */
+}
+
+/* Hamburger */
 .menu-toggle {
   display: none;
   font-size: 28px;
-  color: crimson;
+  color: #fff;
   cursor: pointer;
 }
 
-/* Mobile Styles */
+/* Mobile */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* hide by default */
-    flex-direction: column;
-    background: #111;
     position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 15px;
-    border-radius: 8px;
+    top: 60px;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 10px;
   }
 
-  .nav-links.show {
-    display: flex; /* show when toggled */
+  .nav-links.active {
+    display: flex;
   }
 
   .menu-toggle {
-    display: block; /* show hamburger */
+    display: block;
   }
 }
 
