@@ -4,7 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registration — Crimson Crown Esports</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+   <style>
+    /* Page Layout Fix */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1; /* pushes footer down */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* Form Styling */
+.form-box {
+  background: #111;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(255,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-box label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-box input,
+.form-box textarea,
+.form-box select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.form-box textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-box button {
+  background: crimson;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-box button:hover {
+  background: #e60026;
+  box-shadow: 0 0 10px crimson;
+}
+
+/* Footer Stick */
+footer {
+  background: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto;
+}
+
+   </style>
 </head>
 <body>
   <!-- Header with Navbar -->
@@ -22,25 +99,34 @@
     </nav>
   </header>
 
-  <section class="page-header">
-  <h1>Team Registration</h1>
-  <p>Register your team for upcoming Crimson Crown tournaments.</p>
+<section class="page-header">
+  <h1>Register Your Team</h1>
+  <p>Sign up to participate in upcoming tournaments.</p>
 </section>
 
 <section class="content">
-  <form class="registration-form">
-    <input type="text" placeholder="Team Name" required />
-    <input type="text" placeholder="Captain Name" required />
-    <input type="email" placeholder="Email" required />
-    
-    <!-- Static for now: only Farlight 84 -->
+  <form class="form-box">
+    <label>Team Name</label>
+    <input type="text" placeholder="Enter Team Name" required />
+
+    <label>Captain Name</label>
+    <input type="text" placeholder="Enter Captain Name" required />
+
+    <label>Captain Email</label>
+    <input type="email" placeholder="Enter Captain Email" required />
+
+    <label>Members (IGNs)</label>
+    <textarea placeholder="List player names (one per line)" required></textarea>
+
+    <label>Game</label>
     <select required>
       <option value="farlight84">Farlight 84</option>
     </select>
-    
-    <button type="submit" class="btn">Register</button>
+
+    <button type="submit" class="btn">Submit Registration</button>
   </form>
 </section>
+
 
   <footer>
     <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
