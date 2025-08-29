@@ -9,14 +9,8 @@
 <body>
   <header>
     <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="tournaments.html" class="active">Tournaments</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="registration.html">Register</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <!-- Navbar Placeholder -->
+  <div id="navbar"></div>
   </header>
 
   <section class="page-header">
@@ -37,8 +31,13 @@
     </ul>
   </section>
 
-  <footer>
-    <p>© 2025 Crimson Crown. All Rights Reserved.</p>
-  </footer>
+   <!-- Footer Placeholder -->
+  <div id="footer"></div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    loadHTML("navbar", "partials/navbar.html");
+    loadHTML("footer", "partials/footer.html");
+  </script>
 </body>
 </html>
