@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaderboard | Crimson Crown</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leaderboard — Crimson Crown</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script defer src="assets/js/main.js"></script>
 </head>
 <body>
-  <header>
-   <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" /> 
-  <!-- Navbar Placeholder -->
-  <?php include 'includes/navbar.php'; ?>
-  </header>
+<header>
+<img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
+<?php include 'includes/navbar.php'; ?>
+</header>
 
-  <section class="page-header">
-    <h1>Leaderboard</h1>
-    <p>Top teams and their rankings</p>
-  </section>
 
-  <section class="content">
-    <table class="leaderboard-table">
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Team</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Team Alpha</td>
-          <td>120</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Team Bravo</td>
-          <td>95</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Team Crimson</td>
-          <td>80</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+<section class="page-header">
+<h1>Weekly Leaderboard</h1>
+<p>Auto-updated standings.</p>
+</section>
 
-  <!-- Footer Placeholder -->
-  <?php include 'includes/footer.php'; ?>
 
-  <script src="assets/js/main.js"></script>
+<section class="content">
+<table>
+<thead>
+<tr>
+<th>Rank</th><th>Team</th><th>R1</th><th>R2</th><th>R3</th><th>Total</th>
+</tr>
+</thead>
+<tbody id="leaderboard-body">
+<!-- Will be filled by php/leaderboard.php via fetch() -->
+</tbody>
+</table>
+</section>
+
+
+<script>
+// Fetch JSON rows and render into table
+fetch('php/leaderboard.php')
+.then(r => r.json())
+.then(rows => {
+const tbody = document.getElementById('leaderboard-body');
+tbody.innerHTML = rows.map((r, i) => `
+<tr>
+<td>${i + 1}</td>
+<td>${r.team}</td>
+<td>${r.r1}</td>
+<td>${r.r2}</td>
+<td>${r.r3}</td>
+<td><strong>${r.total}</strong></td>
+</tr>
+`).join('');
+})
+.catch(() => {
+const tbody = document.getElementById('leaderboard-body');
+tbody.innerHTML = `<tr><td colspan="6">Unable to load leaderboard.</td></tr>`;
+});
+</script>
+
+
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

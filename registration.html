@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registration | Crimson Crown</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Team Registration — Crimson Crown</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script defer src="assets/js/main.js"></script>
 </head>
 <body>
-  <header>
-    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
-  <!-- Navbar Placeholder -->
-  <?php include 'includes/navbar.php'; ?>
-  </header>
+<header>
+<img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
+<?php include 'includes/navbar.php'; ?>
+</header>
 
-  <section class="page-header">
-    <h1>Team Registration</h1>
-    <p>Register your team for upcoming tournaments</p>
-  </section>
 
-  <section class="content">
-    <form action="#" method="POST" class="registration-form">
-      <input type="text" name="team_name" placeholder="Team Name" required />
-      <input type="text" name="team_leader" placeholder="Team Leader Name" required />
-      <input type="email" name="email" placeholder="Team Leader Email" required />
-      <textarea name="players" placeholder="List of Players (IGNs, Discord IDs)" required></textarea>
-      <button type="submit" class="btn">Register</button>
-    </form>
-  </section>
+<section class="page-header">
+<h1>Register Your Team</h1>
+<p>Fill the form below to enter the next tournament.</p>
+</section>
 
-  <!-- Footer Placeholder -->
-  <?php include 'includes/footer.php'; ?>
 
-  <script src="assets/js/main.js"></script>
+<section class="content">
+<?php if (isset($_GET['status']) && $_GET['status'] === 'ok'): ?>
+<div class="alert success">Team registered successfully!</div>
+<?php elseif (isset($_GET['status']) && $_GET['status'] === 'err'): ?>
+<div class="alert error">Registration failed. Please try again.</div>
+<?php endif; ?>
+
+
+<form class="registration-form" method="post" action="php/register.php">
+<input type="text" name="team_name" placeholder="Team Name" required>
+<input type="text" name="leader_name" placeholder="Leader Name" required>
+<input type="text" name="contact" placeholder="Contact (Discord ID / Phone)" required>
+<select name="game" required>
+<option value="">Select Game</option>
+<option>BGMI</option>
+<option>Valorant</option>
+<option>CODM</option>
+</select>
+<button class="btn" type="submit">Submit</button>
+</form>
+</section>
+
+
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>
