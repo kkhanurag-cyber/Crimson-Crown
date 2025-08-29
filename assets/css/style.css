@@ -5,17 +5,8 @@ body {
   background: #0a0a0a;
   color: white;
   text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* allow footer pinning */
 }
 
-main {
-  flex: 1; /* pushes footer down */
-}
-
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -44,6 +35,7 @@ header .logo {
   padding: 40px;
   border-radius: 10px;
 }
+
 
 /* Navbar */
 .navbar {
@@ -166,7 +158,7 @@ footer {
   padding: 15px;
   background: #111;
   font-size: 0.9rem;
-  margin-top: auto; /* keeps footer at bottom */
+  margin-top: 50px;
 }
 
 /* Animations */
@@ -210,15 +202,10 @@ footer {
 
 /* Contact form */
 .contact-form {
-  max-width: 600px;
-  margin: 30px auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 20px;
-  background: #111;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #222;
+  margin-top: 20px;
 }
 .contact-form input, .contact-form textarea {
   padding: 12px;
@@ -229,7 +216,7 @@ footer {
 }
 .contact-form textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
 }
 .contact-form button {
   align-self: flex-start;
@@ -260,14 +247,10 @@ table tr:hover {
 /* Registration form */
 .registration-form {
   max-width: 600px;
-  margin: 30px auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 20px;
-  background: #111;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #222;
 }
 .registration-form input, 
 .registration-form select {
