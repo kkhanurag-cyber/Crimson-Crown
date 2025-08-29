@@ -1,4 +1,4 @@
-/* ---------------- Global Styles ---------------- */
+/* Global Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -7,26 +7,25 @@ body {
   text-align: center;
 }
 
-/* ---------------- Header (Logo + Navbar) ---------------- */
 header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 20px;
   background: #111;
 }
 
 header .logo {
-  height: 60px;
-  margin-bottom: 10px;
+  height: 50px;
 }
 
-/* ---------------- Navbar ---------------- */
+/* Navbar */
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  padding: 10px 0;
+  background: #111;
+  padding: 10px 20px;
 }
 
 .nav-links {
@@ -60,7 +59,7 @@ header .logo {
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 100px; /* under header */
+    top: 60px;
     right: 0;
     background: #111;
     flex-direction: column;
@@ -78,7 +77,7 @@ header .logo {
   }
 }
 
-/* ---------------- Hero Section ---------------- */
+/* Hero Section */
 .hero {
   height: 100vh;
   display: flex;
@@ -116,69 +115,25 @@ header .logo {
   box-shadow: 0 0 20px crimson;
 }
 
-/* ---------------- About Preview ---------------- */
-.about-preview {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  text-align: center;
-}
-.about-preview h2 {
-  font-size: 2rem;
-  color: crimson;
-  margin-bottom: 15px;
-}
-.about-preview p {
-  font-size: 1.1rem;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-/* ---------------- Highlights ---------------- */
-.highlights {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 50px auto;
-  max-width: 1000px;
-}
-.highlight-card {
+/* Footer */
+footer {
+  padding: 15px;
   background: #111;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #222;
-  flex: 1 1 250px;
-  text-align: center;
-}
-.highlight-card h3 {
-  color: crimson;
-  margin-bottom: 10px;
-}
-.highlight-card p {
-  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 50px;
 }
 
-/* ---------------- Call to Action ---------------- */
-.cta {
-  margin: 60px 20px;
-  text-align: center;
-  background: linear-gradient(to right, #111, #000);
-  padding: 40px 20px;
-  border-radius: 10px;
-}
-.cta h2 {
-  font-size: 2rem;
-  color: crimson;
-  margin-bottom: 10px;
-}
-.cta p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #ddd;
+/* Animations */
+.fade-in {
+  animation: fadeIn 2s ease-in;
 }
 
-/* ---------------- Page Headers ---------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Page headers */
 .page-header {
   padding: 100px 20px 50px;
   background: linear-gradient(to right, #111, #000);
@@ -192,7 +147,7 @@ header .logo {
   color: #ddd;
 }
 
-/* ---------------- Content Section ---------------- */
+/* Content section */
 .content {
   max-width: 900px;
   margin: auto;
@@ -203,20 +158,18 @@ header .logo {
   color: crimson;
   margin-top: 40px;
 }
-.content p, 
-.content li {
+.content p, .content li {
   line-height: 1.6;
 }
 
-/* ---------------- Contact Form ---------------- */
+/* Contact form */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: 20px;
 }
-.contact-form input, 
-.contact-form textarea {
+.contact-form input, .contact-form textarea {
   padding: 12px;
   border: none;
   border-radius: 5px;
@@ -231,7 +184,7 @@ header .logo {
   align-self: flex-start;
 }
 
-/* ---------------- Tables (Leaderboard & Tournaments) ---------------- */
+/* Tables */
 table {
   width: 100%;
   max-width: 900px;
@@ -253,7 +206,7 @@ table tr:hover {
   background: #1a1a1a;
 }
 
-/* ---------------- Registration Form ---------------- */
+/* Registration form */
 .registration-form {
   max-width: 600px;
   margin: auto;
@@ -271,22 +224,4 @@ table tr:hover {
 }
 .registration-form button {
   align-self: flex-start;
-}
-
-/* ---------------- Footer ---------------- */
-footer {
-  padding: 15px;
-  background: #111;
-  font-size: 0.9rem;
-  margin-top: 50px;
-}
-
-/* ---------------- Animations ---------------- */
-.fade-in {
-  animation: fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
