@@ -7,7 +7,7 @@ body {
   text-align: center;
 }
 
-/* Header 
+Header 
 header {
   display: flex;
   justify-content: space-between;
@@ -18,7 +18,7 @@ header {
 
 header .logo {
   height: 50px;
-} */
+}
 
 nav a {
   margin: 0 15px;
