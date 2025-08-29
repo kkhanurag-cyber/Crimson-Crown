@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Crimson Crown</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <section class="page-header">
+    <h1>Team & Player Registration</h1>
+    <p>Join our tournaments by filling the form below</p>
+  </section>
+
+  <section class="content">
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+      <input type="text" name="team_name" placeholder="Team Name" required>
+      <input type="text" name="team_leader" placeholder="Team Leader Name" required>
+      <input type="email" name="email" placeholder="Team Leader Email" required>
+      <textarea name="players" placeholder="Enter player names & roles" required></textarea>
+      <button type="submit" class="btn">Register Team</button>
+    </form>
+  </section>
+
+  <div id="footer"></div>
+</body>
+</html>

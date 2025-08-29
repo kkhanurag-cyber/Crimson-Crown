@@ -137,3 +137,44 @@ footer {
 .contact-form button {
   align-self: flex-start;
 }
+/* Tables (for Leaderboard & Tournament listings) */
+table {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: #111;
+  box-shadow: 0 0 10px #222;
+}
+table th, table td {
+  padding: 15px;
+  border-bottom: 1px solid #222;
+}
+table th {
+  background: crimson;
+  color: white;
+  text-transform: uppercase;
+}
+table tr:hover {
+  background: #1a1a1a;
+}
+
+/* Registration form */
+.registration-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.registration-form input, 
+.registration-form select {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+.registration-form button {
+  align-self: flex-start;
+}
