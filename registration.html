@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | Crimson Crown</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration | Crimson Crown</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-    <!-- Navbar Placeholder -->
-  <div id="partials/navbar.html"></div>
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tournaments.html">Tournaments</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="registration.html" class="active">Registration</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <section class="page-header">
-    <h1>Team & Player Registration</h1>
-    <p>Join our tournaments by filling the form below</p>
+    <h1>Team Registration</h1>
+    <p>Register your team for upcoming tournaments</p>
   </section>
 
   <section class="content">
-    <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
-      <input type="text" name="team_name" placeholder="Team Name" required>
-      <input type="text" name="team_leader" placeholder="Team Leader Name" required>
-      <input type="email" name="email" placeholder="Team Leader Email" required>
-      <textarea name="players" placeholder="Enter player names & roles" required></textarea>
-      <button type="submit" class="btn">Register Team</button>
+    <form action="#" method="POST" class="registration-form">
+      <input type="text" name="team_name" placeholder="Team Name" required />
+      <input type="text" name="team_leader" placeholder="Team Leader Name" required />
+      <input type="email" name="email" placeholder="Team Leader Email" required />
+      <textarea name="players" placeholder="List of Players (IGNs, Discord IDs)" required></textarea>
+      <button type="submit" class="btn">Register</button>
     </form>
   </section>
 
-   <!-- Footer Placeholder -->
-  <div id="footer"></div>
-
-  <script src="assets/js/main.js"></script>
-  <script>
-    loadHTML("navbar", "partials/navbar.html");
-    loadHTML("footer", "partials/footer.html");
-  </script>
+  <footer>
+    <p>© 2025 Crimson Crown. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>

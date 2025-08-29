@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leaderboard | Crimson Crown</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-    <!-- Navbar Placeholder -->
-  <div id="partials/navbar.html"></div>
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tournaments.html">Tournaments</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="registration.html">Registration</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <section class="page-header">
     <h1>Leaderboard</h1>
-    <p>Top Teams & Rankings</p>
+    <p>Top teams and their rankings</p>
   </section>
 
   <section class="content">
-    <table border="1" width="100%" cellspacing="0" cellpadding="10">
-      <tr>
-        <th>Rank</th>
-        <th>Team</th>
-        <th>Points</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Team Phoenix</td>
-        <td>120</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Shadow Esports</td>
-        <td>95</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Crimson Warriors</td>
-        <td>80</td>
-      </tr>
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Team Alpha</td>
+          <td>120</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Team Bravo</td>
+          <td>95</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Team Crimson</td>
+          <td>80</td>
+        </tr>
+      </tbody>
     </table>
   </section>
 
-   <!-- Footer Placeholder -->
-  <div id="footer"></div>
-
-  <script src="assets/js/main.js"></script>
-  <script>
-    loadHTML("navbar", "partials/navbar.html");
-    loadHTML("footer", "partials/footer.html");
-  </script>
+  <footer>
+    <p>© 2025 Crimson Crown. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
