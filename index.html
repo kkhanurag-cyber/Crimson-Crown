@@ -8,8 +8,7 @@
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
- <!-- Navbar Placeholder -->
-  <div id="partials/navbar.html></div>
+  <div id="navbar"></div>
 
   <section class="hero">
     <h1 class="fade-in">Crimson Crown</h1>
@@ -17,13 +16,12 @@
     <a href="https://discord.gg/BWhXZfVxgx" target="_blank" class="btn">Join Our Discord</a>
   </section>
 
- <!-- Footer Placeholder -->
   <div id="footer"></div>
 
-  <script src="assets/js/main.js"></script>
   <script>
-    loadHTML("navbar", "partials/navbar.html");
-    loadHTML("footer", "partials/footer.html");
+    // Update these paths according to your deployment setup:
+    loadHTML("navbar", "/partials/navbar.html");
+    loadHTML("footer", "/partials/footer.html");
   </script>
 </body>
 </html>
