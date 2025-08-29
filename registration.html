@@ -23,27 +23,24 @@
   </header>
 
   <section class="page-header">
-    <h1>Register Your Team</h1>
-    <p>Sign up to participate in upcoming tournaments.</p>
-  </section>
+  <h1>Team Registration</h1>
+  <p>Register your team for upcoming Crimson Crown tournaments.</p>
+</section>
 
-  <section class="content">
-    <form class="form">
-      <label for="team-name">Team Name:</label>
-      <input type="text" id="team-name" name="team-name" required />
-
-      <label for="captain">Captain Name:</label>
-      <input type="text" id="captain" name="captain" required />
-
-      <label for="email">Captain Email:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="members">Team Members (IGNs):</label>
-      <textarea id="members" name="members" rows="4" required></textarea>
-
-      <button type="submit" class="btn">Submit Registration</button>
-    </form>
-  </section>
+<section class="content">
+  <form class="registration-form">
+    <input type="text" placeholder="Team Name" required />
+    <input type="text" placeholder="Captain Name" required />
+    <input type="email" placeholder="Email" required />
+    
+    <!-- Static for now: only Farlight 84 -->
+    <select required>
+      <option value="farlight84">Farlight 84</option>
+    </select>
+    
+    <button type="submit" class="btn">Register</button>
+  </form>
+</section>
 
   <footer>
     <p>© 2025 Crimson Crown Esports. All rights reserved.</p>

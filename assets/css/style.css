@@ -19,6 +19,24 @@ header .logo {
   height: 50px;
 }
 
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url("assets/images/hero-bg.gif") no-repeat center center/cover;
+  position: relative;
+}
+
+.hero .overlay {
+  background: rgba(0, 0, 0, 0.6); /* dark overlay for readability */
+  padding: 40px;
+  border-radius: 10px;
+}
+
+
 /* Navbar */
 .navbar {
   background: #111;
