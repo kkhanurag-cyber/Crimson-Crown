@@ -3,48 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaderboard — Crimson Crown</title>
+  <title>Leaderboard — Crimson Crown Esports</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="assets/js/include.js" defer></script>
 </head>
 <body>
+  <!-- Header with Navbar -->
   <header>
     <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
-    <div data-include="includes/navbar.html"></div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section class="page-header">
-    <h1>Leaderboard</h1>
-    <p>Top teams of the week</p>
+    <h1>Weekly Leaderboard</h1>
+    <p>Updated rankings for ongoing tournaments.</p>
   </section>
 
-  <table>
-    <tr>
-      <th>Rank</th>
-      <th>Team</th>
-      <th>R1</th>
-      <th>R2</th>
-      <th>R3</th>
-      <th>Total</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Team Phoenix</td>
-      <td>20</td>
-      <td>18</td>
-      <td>25</td>
-      <td>63</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Shadow Hunters</td>
-      <td>18</td>
-      <td>20</td>
-      <td>22</td>
-      <td>60</td>
-    </tr>
-  </table>
+  <section class="content">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team</th>
+          <th>R1</th>
+          <th>R2</th>
+          <th>R3</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Team Alpha</td><td>20</td><td>15</td><td>18</td><td>53</td></tr>
+        <tr><td>2</td><td>Squad Phoenix</td><td>18</td><td>16</td><td>17</td><td>51</td></tr>
+        <tr><td>3</td><td>Dark Knights</td><td>14</td><td>12</td><td>19</td><td>45</td></tr>
+        <tr><td>4</td><td>Wolfpack</td><td>10</td><td>14</td><td>15</td><td>39</td></tr>
+        <tr><td>5</td><td>Crimson Raiders</td><td>9</td><td>10</td><td>12</td><td>31</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-  <div data-include="includes/footer.html"></div>
+  <footer>
+    <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+  </footer>
 </body>
 </html>

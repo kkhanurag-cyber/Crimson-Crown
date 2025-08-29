@@ -3,36 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register — Crimson Crown</title>
+  <title>Registration — Crimson Crown Esports</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="assets/js/include.js" defer></script>
 </head>
 <body>
+  <!-- Header with Navbar -->
   <header>
     <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo" />
-    <div data-include="includes/navbar.html"></div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="registration.html" class="active">Registration</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <section class="page-header">
     <h1>Register Your Team</h1>
-    <p>Join upcoming Crimson Crown tournaments</p>
+    <p>Sign up to participate in upcoming tournaments.</p>
   </section>
 
-  <div class="content">
-    <form class="registration-form">
-      <input type="text" placeholder="Team Name" required />
-      <input type="text" placeholder="Leader Name" required />
-      <input type="email" placeholder="Email" required />
-      <select required>
-        <option value="">Select Game</option>
-        <option value="pubg">PUBG Mobile</option>
-        <option value="bgmi">BGMI</option>
-        <option value="codm">COD Mobile</option>
-      </select>
-      <button type="submit" class="btn">Submit</button>
-    </form>
-  </div>
+  <section class="content">
+    <form class="form">
+      <label for="team-name">Team Name:</label>
+      <input type="text" id="team-name" name="team-name" required />
 
-  <div data-include="includes/footer.html"></div>
+      <label for="captain">Captain Name:</label>
+      <input type="text" id="captain" name="captain" required />
+
+      <label for="email">Captain Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="members">Team Members (IGNs):</label>
+      <textarea id="members" name="members" rows="4" required></textarea>
+
+      <button type="submit" class="btn">Submit Registration</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+  </footer>
 </body>
 </html>
