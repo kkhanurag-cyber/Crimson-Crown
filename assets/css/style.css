@@ -16,9 +16,6 @@ body {
   flex-direction: column;
 }
 
-body.loaded {
-  opacity: 1;
-}
 
 main {
   flex: 1; /* pushes footer down */
