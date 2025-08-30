@@ -140,7 +140,7 @@ header .logo {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url("assets/images/hero-bg.gif") no-repeat center center/cover;
+  background: url("/workspaces/Crimson-Crown/assets/images/hero-bg.gif") no-repeat center center/cover;
   position: relative;
 }
 
