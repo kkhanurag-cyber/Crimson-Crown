@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>View Registrations</title>
+<link rel="stylesheet" href="../assets/css/admin.css">
+<script src="scripts/admin.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background:#222;color:#fff;padding:10px;">
+  <span>Admin Panel</span> |
+  <a href="dashboard.html" style="color:#fff;">Dashboard</a> |
+  <a href="add-tournament.html" style="color:#fff;">Add Tournament</a> |
+  <span id="loggedInAdmin"></span> |
+  <a href="#" onclick="logout()" style="color:#fff;">Logout</a>
+</nav>
+<hr>
+
+<h1>Registrations</h1>
+<p>Tournament: <span id="tournamentName"></span></p>
+
+<table id="registrations-table" border="1" cellpadding="5">
+<thead>
+<tr>
+  <th>Team Name</th>
+  <th>Captain Discord ID</th>
+  <th>Players</th>
+  <th>Substitutes</th>
+  <th>Team Logo</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+<script>
+checkLogin();
+document.getElementById('loggedInAdmin').textContent = 'Logged in as: ' + localStorage.getItem('adminUsername');
+
+const urlParams = new URLSearchParams(window.location.search);
+const scrimId = urlParams.get('id');
+loadRegistrations(scrimId);
+</script>
+</body>
+</html>
