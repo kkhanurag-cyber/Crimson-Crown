@@ -8,8 +8,15 @@ function loadComponent(id, file) {
     .catch(error => console.error("Error loading component:", error));
 }
 
+
+
 // Run after DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
   loadComponent("navbar", "assets/components/navbar.html");
   loadComponent("footer", "assets/components/footer.html");
+});
+
+// main.js
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
 });
