@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournaments — Crimson Crown Esports</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+.page-header {
+  text-align: center;
+  padding: 30px 15px;  /* ↓ thoda compact */
+  background: linear-gradient(90deg, #111, #1c1c1c);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.page-header p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.btn-register.locked {
+  background: #aaa;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header with Navbar -->
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo">
+    <nav class="navbar">
+      <div class="menu-toggle">&#9776;</div>
+      <ul class="nav-links">
+          <li><a href="index.html" >Home</a></li>
+          <li><a href="about.html" >About</a></li>
+          <li><a href="tournaments.html" class="active">Tournaments</a></li>
+          <li><a href="leaderboard.html">Leaderboard</a></li>
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  </header>
+
+<section class="page-header">
+  <h1>Tournaments</h1>
+  <p>Latest and past tournaments hosted by Crimson Crown.</p>
+</section>
+
+<section class="tournament-section">
+  <h2>Active Tournaments</h2>
+  <div class="tournament-list" id="activeContainer"></div>
+</section>
+
+<section class="tournament-section">
+  <h2>Upcoming Tournaments</h2>
+  <div class="tournament-list" id="upcomingContainer"></div>
+</section>
+
+<section class="tournament-section">
+  <h2>Closed Tournaments</h2>
+  <div class="tournament-list" id="closedContainer"></div>
+</section>
+
+
+  <footer>
+    <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/tournaments.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
