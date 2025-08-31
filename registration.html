@@ -24,40 +24,54 @@
     </nav>
   </header>
 
-  <section class="page-header">
-  <h1>Register Your Team</h1>
-  <p>Sign up to participate in upcoming tournaments.</p>
-</section>
+<section class="page-header">
+    <h1>Team Registration</h1>
+    <p id="tournamentInfo">Loading tournament details...</p>
+  </section>
 
-<section class="content">
-  <form class="form-box">
-    <label>Team Name</label>
-    <input type="text" placeholder="Enter Team Name" required />
+  <section class="content">
+    <div id="invalidAccess" style="display:none; color:red; font-weight:bold;">
+      ⚠️ Invalid access. Please register through the Tournaments page.
+    </div>
 
-    <label>Captain Name</label>
-    <input type="text" placeholder="Enter Captain Name" required />
+    <form id="registrationForm" style="display:none;">
+      <input type="hidden" name="scrimId" id="scrimId">
 
-    <label>Captain Email</label>
-    <input type="email" placeholder="Enter Captain Email" required />
+      <label>Team Name</label>
+      <input type="text" name="teamName" required>
 
-    <label>Members (IGNs)</label>
-    <textarea placeholder="List player names (one per line)" required></textarea>
+      <label>Captain</label>
+      <input type="text" name="captain" required>
 
-    <label>Game</label>
-    <select required>
-      <option value="farlight84">Farlight 84</option>
-    </select>
+      <label>Player 1</label>
+      <input type="text" name="player1" required>
+      <label>Player 2</label>
+      <input type="text" name="player2" required>
+      <label>Player 3</label>
+      <input type="text" name="player3" required>
+      <label>Player 4</label>
+      <input type="text" name="player4" required>
 
-    <button type="submit" class="btn">Submit Registration</button>
-  </form>
-</section>
+      <label>Substitute 1</label>
+      <input type="text" name="sub1">
+      <label>Substitute 2</label>
+      <input type="text" name="sub2">
+      <label>Substitute 3</label>
+      <input type="text" name="sub3">
 
+      <label>Team Logo (URL)</label>
+      <input type="url" name="teamLogo" placeholder="https://example.com/logo.png">
 
+      <button type="submit">Submit Registration</button>
+    </form>
+
+    <p id="message"></p>
+  </section>
 
   <footer>
-    <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+    <p>© 2025 Crimson Crown Esports</p>
   </footer>
-  <script src="assets/js/main.js"></script>
 
+  <script src="assets/js/registration.js"></script>
 </body>
 </html>

@@ -7,7 +7,6 @@ body {
   background: #0a0a0a;
   color: white;
   text-align: center;
-<<<<<<< Updated upstream
   transition: opacity 0.6s ease-in-out;
   min-height: 100vh;
   display: flex;
@@ -25,24 +24,6 @@ main {
 /* =========================
    Header & Navbar
 ========================= */
-=======
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: inherit;
-}
-
-/* Responsive container */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-/* Header */
->>>>>>> Stashed changes
 header {
   display: flex;
   justify-content: space-between;
@@ -53,23 +34,10 @@ header {
 
 header .logo {
   height: 50px;
-<<<<<<< Updated upstream
-=======
-} 
-
-
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: crimson;
-  font-weight: bold;
-  transition: 0.3s;
->>>>>>> Stashed changes
 }
 
 /* Navbar */
 .navbar {
-<<<<<<< Updated upstream
   background: #111;
   padding: 10px 0;
 }
@@ -77,141 +45,15 @@ nav a {
 .nav-links {
   display: flex;
   justify-content: center;
-=======
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 10px 20px;
-  box-sizing: border-box;
-}
-
-/* Logo container */
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  height: 50px;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-/* Navigation container */
-.nav-container {
-  display: flex;
-  align-items: center;
-}
-
-/* Hamburger icon (hidden on desktop) */
-.menu-toggle {
-  display: none;
-  cursor: pointer;
-  margin-left: 20px;
-  width: 30px;
-  height: 25px;
-  position: relative;
-  z-index: 2;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: crimson;
-  margin: 5px 0;
-  transition: 0.4s;
-  border-radius: 2px;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 10px 15px;
-  }
-  
-  .nav-container {
-    justify-content: flex-end;
-  }
-  
-  .nav-links {
-    display: none; /* hide by default */
-    flex-direction: column;
-    background: #111;
-    position: absolute;
-    top: 70px;
-    right: 15px;
-    padding: 15px;
-    border-radius: 8px;
-    z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    width: 200px;
-    text-align: left;
-  }
-
-  .nav-links.show {
-    display: flex; /* show when toggled */
-  }
-
-  .menu-toggle {
-    display: block; /* show hamburger */
-  }
-  
-  /* Animate hamburger to X when menu is open */
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 6px);
-  }
-  
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -6px);
-  }
-  
-  .nav-links li {
-    margin: 10px 0;
-    width: 100%;
-  }
-  
-  .nav-links a {
-    display: block;
-    padding: 8px 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border-left: 3px solid transparent;
-  }
-  
-  .nav-links a:hover,
-  .nav-links a.active {
-    border-left: 3px solid crimson;
-    background-color: rgba(220, 20, 60, 0.1);
-  }
-}
-
-
-/* Nav links inside the navbar */
-.navbar .nav-links {
-  display: flex;      /* forces horizontal */
-  flex-direction: row;
-  gap: 20px;
->>>>>>> Stashed changes
   list-style: none;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease;
 }
 
 .nav-links li {
   margin: 0 15px;
 }
 
-<<<<<<< Updated upstream
 .nav-links a {
   display: inline-block;
   text-decoration: none;
@@ -223,68 +65,6 @@ nav a {
 
 .nav-links a:hover {
   color: crimson;
-=======
-/* Nav links styling */
-.nav-links a {
-  position: relative;
-  padding: 5px 0;
-  transition: all 0.3s ease;
-}
-
-/* Active link */
-.nav-links a.active {
-  color: white;              /* highlight color */
-}
-
-/* Underline effect for desktop */
-@media (min-width: 769px) {
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: crimson;
-    transition: width 0.3s ease;
-  }
-  
-  .nav-links a:hover::after,
-  .nav-links a.active::after {
-    width: 100%;
-  }
-}
-
-
-/* Footer Styles */
-.footer {
-  background: #111;
-  padding: 20px;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.footer p {
-  margin: 0;
-  color: #888;
-}
-
-.discord-btn {
-  display: inline-block;
-  background: crimson;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.discord-btn:hover {
-  background: #a00;
->>>>>>> Stashed changes
 }
 
 /* Hover underline */
@@ -354,7 +134,6 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< Updated upstream
   text-align: center;
   position: relative;
   background: 
@@ -365,10 +144,6 @@ nav a {
   background: rgba(0, 0, 0, 0.6);
   padding: 40px;
   border-radius: 10px;
-=======
-  background: linear-gradient(to bottom, #1a1a1a, #000);
-  padding: 0 20px;
->>>>>>> Stashed changes
 }
 
 .hero h1 {
@@ -382,25 +157,6 @@ nav a {
   margin: 10px 0 20px;
 }
 
-<<<<<<< Updated upstream
-=======
-/* Responsive typography */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 3rem;
-  }
-  
-  .hero p {
-    font-size: 1rem;
-  }
-  
-  .page-header h1 {
-    font-size: 2rem;
-  }
-}
-
-/* Button */
->>>>>>> Stashed changes
 .btn {
   padding: 12px 25px;
   background: crimson;
@@ -545,36 +301,6 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-<<<<<<< Updated upstream
-=======
-/* Page headers */
-.page-header {
-  padding: 100px 0 50px;
-  background: linear-gradient(to right, #111, #000);
-  width: 100%;
-}
-
-.page-header h1 {
-  font-size: 2.5rem;
-  color: crimson;
-  margin-top: 0;
-}
-
-.page-header p {
-  margin-bottom: 0;
-}
-
-/* Content sections */
-.content {
-  padding: 40px 0;
-  text-align: left;
-}
-
-.content p {
-  font-size: 1.2rem;
-  color: #ddd;
-}
->>>>>>> Stashed changes
 
 /* =========================
    Tables
@@ -601,4 +327,140 @@ table th {
 
 table tr:hover {
   background: #1a1a1a;
+}
+/* =========================
+   Slots Section
+========================= */
+.slot-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 40px auto;
+  max-width: 1100px;
+  padding: 10px;
+}
+
+.team-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(220,20,60,0.25);
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(220,20,60,0.6);
+}
+
+.team-slot {
+  display: inline-block;
+  background: crimson;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.team-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border: 2px solid crimson;
+  box-shadow: 0 0 12px rgba(220,20,60,0.5);
+}
+
+.team-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.3rem;
+  color: crimson;
+}
+
+.team-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+
+/* Tournament Section Layout */
+.tournament-section {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 10px;
+}
+
+.tournament-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center align if few */
+  gap: 20px;
+}
+
+/* Tournament Card */
+.tournament-card {
+  background: linear-gradient(145deg, #1a1a1a, #292929);
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tournament-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(255, 0, 150, 0.4);
+}
+
+.tournament-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #ff4081;
+}
+
+.tournament-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Buttons */
+.tournament-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.tournament-actions a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn-register {
+  background: #ff4081;
+  color: white;
+}
+.btn-register:hover {
+  background: #ff1c6a;
+}
+
+.btn-slots {
+  background: #333;
+  color: #fff;
+}
+.btn-slots:hover {
+  background: #444;
 }

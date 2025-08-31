@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Tournament</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+  <nav class="admin-nav">
+    <span>Admin Panel</span> |
+    <a href="dashboard.html">Dashboard</a> |
+    <a href="add-tournament.html">Add Tournament</a> |
+    <a href="view-registration.html">View Registrations</a>
+    <span id="loggedInAdmin"></span> |
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+  <hr>
+
+  <h1>Add Tournament</h1>
+  <form id="tournamentForm" class="admin-form">
+    <label>Scrim Name:</label>
+    <input type="text" id="scrimName" required><br>
+
+    <label>Registration Start:</label>
+    <input type="datetime-local" id="regStart" required><br>
+
+    <label>Registration End:</label>
+    <input type="datetime-local" id="regEnd" required><br>
+
+    <label>Scrim Start:</label>
+    <input type="datetime-local" id="scrimStart" required><br>
+
+    <label>Scrim End:</label>
+    <input type="datetime-local" id="scrimEnd" required><br>
+
+    <label>Slots:</label>
+    <input type="number" id="slots" required><br>
+
+    <label>Game:</label>
+    <select id="game">
+      <option value="Farlight 84">Farlight 84</option>
+      <option value="Other Game">Other Game</option>
+    </select><br>
+
+    <label>Rounds:</label>
+    <input type="number" id="rounds" required><br>
+
+    <label>Mode:</label>
+    <select id="mode">
+      <option value="Solo">Solo</option>
+      <option value="Duo">Duo</option>
+      <option value="Trio">Trio</option>
+      <option value="Squad">Squad</option>
+    </select><br>
+
+    <label>Rules:</label>
+    <textarea id="rules"></textarea><br>
+
+    <label>Point Table:</label>
+    <textarea id="pointTable"></textarea><br>
+
+    <label>Description:</label>
+    <textarea id="description"></textarea><br>
+
+    <label>Prize Pool:</label>
+    <input type="text" id="prizePool"><br>
+
+    <label>Status:</label>
+    <select id="status">
+      <option value="active">Active</option>
+      <option value="upcoming">Upcoming</option>
+      <option value="completed">Completed</option>
+    </select><br>
+
+    <label>
+      <input type="checkbox" id="defaultTournament"> Set as Default Tournament
+    </label><br><br>
+
+    <button type="submit">Create Tournament</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script src="scripts/admin-add-tournament.js"></script>
+  <script>
+    checkLogin();
+    document.getElementById('loggedInAdmin').textContent =
+      'Logged in as: ' + localStorage.getItem('adminUsername');
+  </script>
+</body>
+</html>
