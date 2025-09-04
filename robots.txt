@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://crimsoncrown.top/sitemaps.xml
+Sitemap: https://crimsoncrown.top/sitemap.xml
