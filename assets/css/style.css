@@ -563,3 +563,74 @@ table tr:hover {
 .btn-slots:hover {
   background: #444;
 }
+
+
+/* Leaderboard Section */
+.leaderboard {
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.top-three {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.rank {
+  background: linear-gradient(to bottom, #ff1c1c, #111);
+  padding: 20px;
+  border-radius: 15px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255,0,0,0.5);
+}
+
+.rank img.team-logo {
+  width: 80px;          /* Adjust size as needed */
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.rank h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.rank p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0 0;
+}
+
+.rank-1 {
+  transform: scale(1.2);
+}
+
+.leaderboard-table {
+  width: 80%;
+  margin: auto;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  border: 1px solid #222;
+  padding: 12px;
+}
+
+.leaderboard-table th {
+  background: #ff1c1c;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.leaderboard-table tr:nth-child(even) {
+  background: #222;
+}

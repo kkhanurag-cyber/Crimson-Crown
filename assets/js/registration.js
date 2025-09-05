@@ -1,12 +1,55 @@
-// ---------- API ----------
-const SHEETDB_BASE = 'https://sheetdb.io/api/v1/e5p48zbm0w5ph';
-const SHEETDB_TOURNAMENTS = `${SHEETDB_BASE}?sheet=tournaments`;
-const SHEETDB_REGISTRATIONS = `${SHEETDB_BASE}?sheet=registrations`;
+// ===============================
+// Registration Script — Google Sheets API
+// ===============================
+
+// 👇 Config
+const SHEET_ID = "1bDom_5E8GFysWTBNZ5b7g8T_Ac-GV6aJvT8fOnDGmOo";
+const API_KEY = "AIzaSyDvIfL-bHWfle3L4fZtLJ2A1nVIgMYWMNk";
+const TOURNAMENTS_RANGE = "tournaments!A2:Z";       // tournaments sheet
+const REGISTRATIONS_RANGE = "registrations!A2:Z";   // registrations sheet
 
 // ---------- Helpers ----------
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
+}
+
+// ---------- Fetch Tournament Info ----------
+async function fetchTournament(scrimId) {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TOURNAMENTS_RANGE}?key=${API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (!data.values) return null;
+
+    // Map columns: adjust indexes according to your sheet
+    const tournaments = data.values.map(row => ({
+        scrimId: row[0],
+        scrimName: row[1],
+        game: row[2],
+        regStart: row[3],
+        regEnd: row[4]
+    }));
+
+    return tournaments.find(t => t.scrimId === scrimId);
+}
+
+// ---------- Submit Registration ----------
+async function submitRegistration(formData) {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${REGISTRATIONS_RANGE}:append?valueInputOption=RAW&key=${API_KEY}`;
+    
+    // Convert formData to array matching your sheet columns
+    const values = [Object.values(formData)]; 
+    
+    const body = { values };
+
+    const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+
+    return res.ok;
 }
 
 // ---------- Main ----------
@@ -24,17 +67,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-        const res = await fetch(`${SHEETDB_TOURNAMENTS}&scrimId=${encodeURIComponent(scrimId)}`);
-        const data = await res.json();
-        if (!data || data.length === 0) {
+        const tournament = await fetchTournament(scrimId);
+        if (!tournament) {
             tournamentInfoEl.textContent = "⚠️ Tournament not found.";
             invalidAccessEl.style.display = "block";
             return;
         }
 
-        const tournament = data[0];
-
-        // Show proper tournament name
+        // Show tournament name
         tournamentInfoEl.textContent = `${tournament.scrimName} (${tournament.game})`;
 
         // Parse dates
@@ -42,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const regStart = new Date(tournament.regStart.replace(" ", "T"));
         const regEnd = new Date(tournament.regEnd.replace(" ", "T"));
 
-        // Check registration open
+        // Check registration window
         if (now < regStart) {
             tournamentInfoEl.textContent += " — Registration not yet open.";
             invalidAccessEl.textContent = "⚠️ Registration is not open for this tournament.";
@@ -71,14 +111,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
 
             try {
-                const res = await fetch(SHEETDB_REGISTRATIONS, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ data: [formData] }),
-                });
-                const result = await res.json();
-
-                if (result.created || res.status === 201) {
+                const success = await submitRegistration(formData);
+                if (success) {
                     messageEl.style.color = "green";
                     messageEl.textContent = "✅ Registration submitted successfully!";
                     registrationForm.reset();
@@ -98,3 +132,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         invalidAccessEl.style.display = "block";
     }
 });
+// ===============================

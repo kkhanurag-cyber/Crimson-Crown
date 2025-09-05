@@ -67,6 +67,14 @@
   </div>
 </div>
 
+<script>
+  function getQueryParam(param) {
+    return new URLSearchParams(window.location.search).get(param);
+}
+
+const scrimId = getQueryParam("scrimId");
+
+</script>
 
   <!-- Footer -->
   <footer>
