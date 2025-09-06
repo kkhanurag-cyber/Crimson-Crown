@@ -9,7 +9,6 @@ const TOURNAMENTS_RANGE = "tournaments!A2:Z"; // Adjust columns if sheet structu
 
 // ---------- Helpers ----------
 function parseIST(dateStr) {
-  // Google Sheet format: "YYYY-MM-DD HH:mm:ss"
   if (!dateStr || typeof dateStr !== "string") return null;
 
   const parts = dateStr.split(" ");
@@ -21,7 +20,6 @@ function parseIST(dateStr) {
 
   if ([y, m, d, h, min, s].some(isNaN)) return null;
 
-  // Convert to IST (UTC+5:30)
   return new Date(Date.UTC(y, m - 1, d, h - 5, min - 30, s));
 }
 
@@ -99,21 +97,30 @@ async function renderTournaments() {
     let actions = `<a href="slot.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-slots">View Slots</a>`;
 
     if (realStatus === "upcoming") {
-      if (regStart && now >= regStart && (!regEnd || now <= regEnd)) {
+      if (regStart && now < regStart) {
+        // Registration not opened yet
+        actions = `
+          <button class="btn-register locked" disabled>
+            Register (Opens ${regStart.toLocaleString("en-IN")})
+          </button>
+          ${actions}
+        `;
+      } else if (regStart && now >= regStart && regEnd && now <= regEnd) {
+        // Registration open
         actions = `
           <a href="registration.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-register">Register</a>
           ${actions}
         `;
-      } else {
+      } else if (regEnd && now > regEnd) {
+        // Registration closed
         actions = `
           <button class="btn-register locked" disabled>
-            Register (Opens ${regStart ? regStart.toLocaleString("en-IN") : "TBD"})
+            Registration Closed
           </button>
           ${actions}
         `;
       }
     } else if (realStatus === "active") {
-      // Just show slots link for active
       actions = `<a href="slot.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-slots">View Slots</a>`;
     }
 
