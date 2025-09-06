@@ -32,23 +32,25 @@
 <meta name="twitter:image" content="https://crimsoncrown.top/assets/og-banner.png">
 
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <!-- Header with Navbar -->
   <!-- Header with Navbar -->
-<header>
-  <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo">
-  <nav class="navbar">
-    <div class="menu-toggle">&#9776;</div>
-    <ul class="nav-links">
-        <li><a href="index.html" >Home</a></li>
-        <li><a href="about.html"class="active">About</a></li>
+ <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo">
+    <nav class="navbar">
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
         <li><a href="tournaments.html">Tournaments</a></li>
         <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="registration.html">Registration</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html" class="active">About</a></li>
       </ul>
     </nav>
   </header>
@@ -76,9 +78,46 @@
     </ul>
   </section>
 
+    <!-- Footer -->
   <footer>
-    <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.gg/BWhXZfVxgx" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+      </div>
+      
+      <div class="footer-text">
+        <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+        <p>Email: <a href="mailto:support@crimsoncrown.top" style="color: #dc143c;">support@crimsoncrown.top</a></p>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+      }
+    });
+    </script>
   <script src="assets/js/main.js"></script>
 
 </body>

@@ -79,10 +79,10 @@
       </div>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
         <li><a href="tournaments.html" class="active">Tournaments</a></li>
         <li><a href="leaderboard.html">Leaderboard</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </nav>
   </header>
@@ -107,7 +107,7 @@
     <div class="tournament-list" id="closedContainer"></div>
   </section>
 
-  <!-- Footer -->
+    <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-links">
@@ -116,18 +116,37 @@
         <a href="leaderboard.html">Leaderboard</a>
         <a href="contact.html">Contact</a>
       </div>
+      
       <div class="social-links">
         <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
         <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="https://discord.gg/BWhXZfVxgx" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
       </div>
+      
       <div class="footer-text">
         <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
-        <p>Email: <a href="mailto:contact@crimsoncrown.top" style="color:#dc143c;">contact@crimsoncrown.top</a></p>
+        <p>Email: <a href="mailto:support@crimsoncrown.top" style="color: #dc143c;">support@crimsoncrown.top</a></p>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+      }
+    });
+    </script>
 
   <!-- Scripts -->
   <script src="assets/js/tournaments.js"></script>
