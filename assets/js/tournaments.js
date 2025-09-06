@@ -5,104 +5,136 @@
 // ---------- Config ----------
 const SHEET_ID = "1bDom_5E8GFysWTBNZ5b7g8T_Ac-GV6aJvT8fOnDGmOo";
 const API_KEY = "AIzaSyDvIfL-bHWfle3L4fZtLJ2A1nVIgMYWMNk";
-const TOURNAMENTS_RANGE = "tournaments!A2:Z"; // Adjust columns as needed
+const TOURNAMENTS_RANGE = "tournaments!A2:Z"; // Adjust columns if sheet structure changes
 
-// ---------- Fetch ----------
-async function getTournaments() {
-    try {
-        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TOURNAMENTS_RANGE}?key=${API_KEY}`;
-        const res = await fetch(url);
-        const data = await res.json();
-        if (!data.values) return [];
+// ---------- Helpers ----------
+function parseIST(dateStr) {
+  // Google Sheet format: "YYYY-MM-DD HH:mm:ss"
+  if (!dateStr || typeof dateStr !== "string") return null;
 
-        // Map each row to an object, adjust indexes according to your sheet
-        return data.values.map(row => ({
-            scrimId: row[0],
-            scrimName: row[1],
-            game: row[2],
-            scrimStart: row[3],
-            scrimEnd: row[4],
-            regStart: row[5],
-            regEnd: row[6],
-            status: row[7] || ""
-        }));
-    } catch (err) {
-        console.error("Error fetching tournaments", err);
-        return [];
-    }
+  const parts = dateStr.split(" ");
+  if (parts.length !== 2) return null;
+
+  const [datePart, timePart] = parts;
+  const [y, m, d] = datePart.split("-").map(Number);
+  const [h, min, s] = timePart.split(":").map(Number);
+
+  if ([y, m, d, h, min, s].some(isNaN)) return null;
+
+  // Convert to IST (UTC+5:30)
+  return new Date(Date.UTC(y, m - 1, d, h - 5, min - 30, s));
 }
 
-// ---------- Render ----------
+// ---------- Fetch Tournaments ----------
+async function getTournaments() {
+  try {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TOURNAMENTS_RANGE}?key=${API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (!data.values || !data.values.length) return [];
+
+    return data.values.map(row => ({
+      scrimId: row[0] || "",
+      scrimName: row[1] || "",
+      regStart: row[2] || "",
+      regEnd: row[3] || "",
+      scrimStart: row[4] || "",
+      scrimEnd: row[5] || "",
+      slots: row[6] || "",
+      game: row[7] || "",
+      rounds: row[8] || "",
+      mode: row[9] || "",
+      rules: row[10] || "",
+      description: row[11] || "",
+      prizePool: row[12] || "",
+      status: row[13] || "",
+      default: row[14] || "",
+      pointTable: row[15] || "",
+    }));
+  } catch (err) {
+    console.error("Error fetching tournaments:", err);
+    return [];
+  }
+}
+
+// ---------- Render Tournaments ----------
 async function renderTournaments() {
-    const tournaments = await getTournaments();
-    const now = new Date();
+  const tournaments = await getTournaments();
+  const now = new Date();
 
-    const activeContainer = document.getElementById("activeContainer");
-    const upcomingContainer = document.getElementById("upcomingContainer");
-    const closedContainer = document.getElementById("closedContainer");
+  const activeContainer = document.getElementById("activeContainer");
+  const upcomingContainer = document.getElementById("upcomingContainer");
+  const closedContainer = document.getElementById("closedContainer");
 
-    activeContainer.innerHTML = "";
-    upcomingContainer.innerHTML = "";
-    closedContainer.innerHTML = "";
+  if (!activeContainer || !upcomingContainer || !closedContainer) {
+    console.warn("Tournament containers missing in HTML!");
+    return;
+  }
 
-    tournaments.forEach(t => {
-        const startDate = new Date(t.scrimStart);
-        const endDate = new Date(t.scrimEnd);
-        const regStart = new Date(t.regStart);
-        const scrimId = t.scrimId;
+  activeContainer.innerHTML = "";
+  upcomingContainer.innerHTML = "";
+  closedContainer.innerHTML = "";
 
-        // Determine real status
-        let realStatus = (t.status || "").toLowerCase().trim();
-        if (!["active", "upcoming", "ended"].includes(realStatus)) {
-            if (endDate < now) {
-                realStatus = "ended";
-            } else if (startDate > now) {
-                realStatus = "upcoming";
-            } else {
-                realStatus = "active";
-            }
-        }
+  tournaments.forEach(t => {
+    const startDate = parseIST(t.scrimStart);
+    const endDate = parseIST(t.scrimEnd);
+    const regStart = parseIST(t.regStart);
+    const regEnd = parseIST(t.regEnd);
+    const scrimId = t.scrimId;
 
-        // Card HTML
-        const card = document.createElement("div");
-        card.className = "tournament-card";
+    // Determine status
+    let realStatus = (t.status || "").toLowerCase().trim();
+    if (!["active", "upcoming", "ended"].includes(realStatus)) {
+      if (endDate && endDate < now) realStatus = "ended";
+      else if (startDate && startDate > now) realStatus = "upcoming";
+      else realStatus = "active";
+    }
 
-        // Actions
-        let actions = `<a href="slot.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-slots">View Slots</a>`;
-        if (realStatus === "upcoming") {
-            if (now >= regStart) {
-                actions = `
-                  <a href="registration.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-register">Register</a>
-                  ${actions}
-                `;
-            } else {
-                actions = `
-                  <button class="btn-register locked" disabled>
-                    Register (Opens ${regStart.toLocaleDateString()})
-                  </button>
-                  ${actions}
-                `;
-            }
-        }
+    // Create card
+    const card = document.createElement("div");
+    card.className = "tournament-card";
 
-        card.innerHTML = `
-          <h3>${t.scrimName}</h3>
-          <p><b>Game:</b> ${t.game}</p>
-          <p><b>Start:</b> ${startDate.toLocaleDateString()}</p>
-          <p><b>Status:</b> ${realStatus}</p>
-          <div class="tournament-actions">${actions}</div>
+    // Actions
+    let actions = `<a href="slot.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-slots">View Slots</a>`;
+
+    if (realStatus === "upcoming") {
+      if (regStart && now >= regStart && (!regEnd || now <= regEnd)) {
+        actions = `
+          <a href="registration.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-register">Register</a>
+          ${actions}
         `;
+      } else {
+        actions = `
+          <button class="btn-register locked" disabled>
+            Register (Opens ${regStart ? regStart.toLocaleString("en-IN") : "TBD"})
+          </button>
+          ${actions}
+        `;
+      }
+    } else if (realStatus === "active") {
+      // Just show slots link for active
+      actions = `<a href="slot.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-slots">View Slots</a>`;
+    }
 
-        // Place in correct section
-        if (realStatus === "active") activeContainer.appendChild(card);
-        else if (realStatus === "upcoming") upcomingContainer.appendChild(card);
-        else if (realStatus === "ended") closedContainer.appendChild(card);
-    });
+    card.innerHTML = `
+      <h3>${t.scrimName}</h3>
+      <p><b>Game:</b> ${t.game || "N/A"}</p>
+      <p><b>Start:</b> ${startDate ? startDate.toLocaleString("en-IN") : "TBD"}</p>
+      <p><b>Status:</b> ${realStatus}</p>
+      <div class="tournament-actions">${actions}</div>
+    `;
 
-    // Fallbacks
-    if (!activeContainer.innerHTML) activeContainer.innerHTML = "<p>No active tournaments.</p>";
-    if (!upcomingContainer.innerHTML) upcomingContainer.innerHTML = "<p>No upcoming tournaments.</p>";
-    if (!closedContainer.innerHTML) closedContainer.innerHTML = "<p>No closed tournaments.</p>";
+    // Append to correct container
+    if (realStatus === "active") activeContainer.appendChild(card);
+    else if (realStatus === "upcoming") upcomingContainer.appendChild(card);
+    else closedContainer.appendChild(card);
+  });
+
+  // Fallback text
+  if (!activeContainer.innerHTML) activeContainer.innerHTML = "<p>No active tournaments.</p>";
+  if (!upcomingContainer.innerHTML) upcomingContainer.innerHTML = "<p>No upcoming tournaments.</p>";
+  if (!closedContainer.innerHTML) closedContainer.innerHTML = "<p>No closed tournaments.</p>";
 }
 
 // ---------- Init ----------
