@@ -5,7 +5,7 @@
 // ---------- Config ----------
 const SHEET_ID = "1bDom_5E8GFysWTBNZ5b7g8T_Ac-GV6aJvT8fOnDGmOo";
 const API_KEY = "AIzaSyDvIfL-bHWfle3L4fZtLJ2A1nVIgMYWMNk";
-const TOURNAMENTS_RANGE = "tournaments!A2:Z"; // Adjust columns if sheet structure changes
+const TOURNAMENTS_RANGE = "tournaments!A2:Z"; // Includes regLink
 
 // ---------- Helpers ----------
 function parseIST(dateStr) {
@@ -49,6 +49,7 @@ async function getTournaments() {
       status: row[13] || "",
       default: row[14] || "",
       pointTable: row[15] || "",
+      regLink: row[16] || ""   // ✅ Google Form link
     }));
   } catch (err) {
     console.error("Error fetching tournaments:", err);
@@ -106,11 +107,20 @@ async function renderTournaments() {
           ${actions}
         `;
       } else if (regStart && now >= regStart && regEnd && now <= regEnd) {
-        // Registration open
-        actions = `
-          <a href="registration.html?scrimId=${encodeURIComponent(scrimId)}" class="btn-register">Register</a>
-          ${actions}
-        `;
+        // ✅ Registration open → use Google Form link
+        if (t.regLink) {
+          actions = `
+            <a href="${t.regLink}" target="_blank" class="btn-register">Register</a>
+            ${actions}
+          `;
+        } else {
+          actions = `
+            <button class="btn-register locked" disabled>
+              Registration Link Missing
+            </button>
+            ${actions}
+          `;
+        }
       } else if (regEnd && now > regEnd) {
         // Registration closed
         actions = `
