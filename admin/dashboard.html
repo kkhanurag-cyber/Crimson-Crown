@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="../assets/css/admin.css">
+<script src="scripts/admin.js"></script>
+</head>
+<body>
+<nav style="background:#222;color:#fff;padding:10px;">
+  <span>Admin Panel</span> |
+  <a href="./dashboard.html" style="color:#fff;">Dashboard</a> |
+  <a href="./add-tournament.html" style="color:#fff;">Add Tournament</a>
+  <a href="./view-registration.html" style="color:#fff;">View Registrations</a> |
+  <span id="loggedInAdmin"></span> |
+  <a href="#" onclick="logout()" style="color:#fff;">Logout</a>
+</nav>
+<hr>
+
+<h1>Tournament Dashboard</h1>
+<table id="tournament-table" border="1" cellpadding="5">
+<thead>
+<tr>
+  <th>Scrim Name</th>
+  <th>Game</th>
+  <th>Mode</th>
+  <th>Slots</th>
+  <th>Actions</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+<script>
+checkLogin();
+document.getElementById('loggedInAdmin').textContent = 'Logged in as: ' + localStorage.getItem('adminUsername');
+loadDashboard();
+</script>
+</body>
+</html>

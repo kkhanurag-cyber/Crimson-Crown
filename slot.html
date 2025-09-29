@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slots | Scrim</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/slots.js" defer></script>
+</head>
+<body>
+  <!-- Header with Navbar -->
+<header>
+  <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo">
+  <nav class="navbar">
+    <div class="menu-toggle">&#9776;</div>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Team Slots</h1>
+    <p>Check your tournament slot allocations</p>
+  </section>
+
+  <!-- Tournament Selector -->
+  <main class="content">
+    <label for="tournamentDropdown"><strong>Select Tournament:</strong></label>
+    <select id="tournamentDropdown" style="margin:10px; padding:8px; border-radius:6px; background:#1a1a1a; color:white;"></select>
+
+    <!-- Slot List -->
+    <div id="slotList" class="slot-list"></div>
+  </main>
+
+<!-- Team Details Modal -->
+<div id="teamModal" class="modal">
+  <div class="modal-content">
+    <span class="close" title="Close">&times;</span>
+    <h2 id="modalTeamName">Team Name</h2>
+    <div class="meta" id="modalMeta">—</div>
+
+    <div class="row">
+      <div class="label">Captain</div>
+      <div id="modalCaptain">—</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Players</div>
+      <div id="modalPlayers" class="chips">—</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Substitutes</div>
+      <div id="modalSubs" class="chips">—</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Ranking</div>
+      <div id="modalRanking">TBD</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function getQueryParam(param) {
+    return new URLSearchParams(window.location.search).get(param);
+}
+
+const scrimId = getQueryParam("scrimId");
+
+</script>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Scrim Platform. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

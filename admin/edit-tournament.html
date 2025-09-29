@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edit Tournament</title>
+<script src="scripts/admin.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav style="background:#222;color:#fff;padding:10px;">
+  <span>Admin Panel</span> |
+  <a href="dashboard.html" style="color:#fff;">Dashboard</a> |
+  <a href="add-tournament.html" style="color:#fff;">Add Tournament</a> |
+  <span id="loggedInAdmin"></span> |
+  <a href="#" onclick="logout()" style="color:#fff;">Logout</a>
+</nav>
+<hr>
+
+<h1>Edit Tournament</h1>
+<form id="editTournamentForm">
+  <input type="text" id="scrimName" placeholder="Scrim Name" required><br>
+  <input type="datetime-local" id="regStart" required> Registration Start<br>
+  <input type="datetime-local" id="regEnd" required> Registration End<br>
+  <input type="datetime-local" id="scrimStart" required> Scrim Start<br>
+  <input type="datetime-local" id="scrimEnd" required> Scrim End<br>
+  <input type="number" id="slots" placeholder="Slots" required><br>
+  <select id="game">
+    <option value="Farlight 84">Farlight 84</option>
+    <option value="Other Game">Other Game</option>
+  </select><br>
+  <input type="number" id="rounds" placeholder="Rounds" required><br>
+  <select id="mode">
+    <option value="Solo">Solo</option>
+    <option value="Duo">Duo</option>
+    <option value="Trio">Trio</option>
+    <option value="Squad">Squad</option>
+  </select><br>
+  <textarea id="rules" placeholder="Rules"></textarea><br>
+  <textarea id="pointTable" placeholder="Point Table"></textarea><br>
+  <textarea id="description" placeholder="Description"></textarea><br>
+  <input type="text" id="prizePool" placeholder="Prize Pool"><br>
+  <button type="submit">Update Tournament</button>
+</form>
+
+<script>
+checkLogin();
+document.getElementById('loggedInAdmin').textContent = 'Logged in as: ' + localStorage.getItem('adminUsername');
+
+// Populate form with existing tournament
+const urlParams = new URLSearchParams(window.location.search);
+const scrimId = urlParams.get('id');
+populateEditForm(scrimId);
+
+// Handle form submission
+document.getElementById('editTournamentForm').addEventListener('submit', updateTournament);
+</script>
+</body>
+</html>

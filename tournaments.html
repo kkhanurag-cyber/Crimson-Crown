@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournaments — Crimson Crown Esports</title>
+
+  <meta name="description" content="Crimson Crown is a global esports organization hosting professional tournaments and Farlight 84 scrims. Compete, win prizes, and be part of the Crimson Crown legacy.">
+  <meta name="keywords" content="Crimson Crown, Crimson Crown esports, Crimson Crown tournaments, Crimson Crown Farlight 84, Crimson Crown scrims, Crimson Crown gaming, Crimson Crown community, Crimson Crown competitive gaming, global esports, online tournaments">
+  <meta name="author" content="Crimson Crown">
+  <meta name="robots" content="index, follow">
+
+  <!-- ✅ Open Graph -->
+  <meta property="og:title" content="Crimson Crown | Esports Tournaments & Farlight 84 Scrims">
+  <meta property="og:description" content="Join Crimson Crown – global esports tournaments, Farlight 84 scrims, and competitive gaming events. Play, compete, and rise with Crimson Crown.">
+  <meta property="og:image" content="https://crimsoncrown.top/assets/og-banner.png">
+  <meta property="og:url" content="https://crimsoncrown.top/">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crimson Crown | Esports & Farlight 84 Scrims">
+  <meta name="twitter:description" content="Crimson Crown hosts professional esports tournaments and Farlight 84 scrims. Join the global gaming movement.">
+  <meta name="twitter:image" content="https://crimsoncrown.top/assets/og-banner.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .page-header {
+      text-align: center;
+      padding: 30px 15px;
+      background: linear-gradient(90deg, #111, #1c1c1c);
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .page-header h1 { margin: 0; font-size: 28px; }
+    .page-header p { margin-top: 5px; font-size: 14px; color: #ccc; }
+
+    .btn-register.locked {
+      background: #aaa;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    footer {
+      background: #111;
+      padding: 40px 5%;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { color: #aaa; text-decoration: none; transition: 0.3s; }
+    .footer-links a:hover { color: #dc143c; }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .social-links a { color: #aaa; font-size: 1.5rem; transition: all 0.3s ease; }
+    .social-links a:hover { color: #dc143c; transform: translateY(-2px); }
+    .footer-text { color: #666; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo">
+    <nav class="navbar">
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tournaments.html" class="active">Tournaments</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <h1>Tournaments</h1>
+    <p>Latest and past tournaments hosted by Crimson Crown.</p>
+  </section>
+
+  <section class="tournament-section">
+    <h2>Active Tournaments</h2>
+    <div class="tournament-list" id="activeContainer"></div>
+  </section>
+
+  <section class="tournament-section">
+    <h2>Upcoming Tournaments</h2>
+    <div class="tournament-list" id="upcomingContainer"></div>
+  </section>
+
+  <section class="tournament-section">
+    <h2>Closed Tournaments</h2>
+    <div class="tournament-list" id="closedContainer"></div>
+  </section>
+
+    <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.gg/BWhXZfVxgx" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+      </div>
+      
+      <div class="footer-text">
+        <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+        <p>Email: <a href="mailto:support@crimsoncrown.top" style="color: #dc143c;">support@crimsoncrown.top</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+      }
+    });
+    </script>
+
+  <!-- Scripts -->
+  <script src="assets/js/tournaments.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+email address : crimsoncrown@crimsoncrown.iam.gserviceaccount.com
+
+
+API Key : AIzaSyC2AVojLosfLCG7Lc7uR5ed6WA9JAupNlY
+
+youtube : AIzaSyDzkkVmgKyxZhEdGVed2gujuWO60-SfN3M
+
+sheetsDB API : https://sheetdb.io/api/v1/cawrdd0p9aki8
+
+
+Client ID : 383379557081-ga2obor41rjs4ge9guopqj21eucuaft8.apps.googleusercontent.com
+
+Service Account : crimsoncrown@crimsoncrown.iam.gserviceaccount.com
+API KEY : AIzaSyDvIfL-bHWfle3L4fZtLJ2A1nVIgMYWMNk

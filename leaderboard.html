@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard — Crimson Crown Esports</title>
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="assets/images/logo.png" alt="Crimson Crown Logo" class="logo">
+    <nav class="navbar">
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Leaderboard Section -->
+  <section class="leaderboard">
+    <h1>LEADERBOARD</h1>
+
+    <!-- Podium Top 3 -->
+<div class="top-three">
+  <div class="rank rank-2">
+    <h2>#2</h2>
+    <img id="logo-2" src="" alt="Team 2 Logo" class="team-logo">
+    <p id="team-2">TEAM 2</p>
+    <span id="points-2">0 pts</span>
+  </div>
+  <div class="rank rank-1">
+    <h2>#1</h2>
+    <img id="logo-1" src="" alt="Team 1 Logo" class="team-logo">
+    <p id="team-1">TEAM 1</p>
+    <span id="points-1">0 pts</span>
+  </div>
+  <div class="rank rank-3">
+    <h2>#3</h2>
+    <img id="logo-3" src="" alt="Team 3 Logo" class="team-logo">
+    <p id="team-3">TEAM 3</p>
+    <span id="points-3">0 pts</span>
+  </div>
+</div>
+    <!-- End Podium Top 3 -->
+
+    <!-- Table 4th onwards -->
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>RANK</th>
+          <th>TEAM NAME</th>
+          <th>POINTS</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-body">
+        <!-- Dynamic rows from JS -->
+      </tbody>
+    </table>
+  </section>
+
+    <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="social-links">
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.gg/BWhXZfVxgx" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+      </div>
+      
+      <div class="footer-text">
+        <p>© 2025 Crimson Crown Esports. All rights reserved.</p>
+        <p>Email: <a href="mailto:support@crimsoncrown.top" style="color: #dc143c;">support@crimsoncrown.top</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+      }
+    });
+    </script>
+
+  <!-- JS -->
+  <script src="assets/js/leaderboard.js"></script>
+</body>
+</html>

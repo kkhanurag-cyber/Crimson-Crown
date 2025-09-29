@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Login</title>
+<link rel="stylesheet" href="../assets/css/admin.css">
+<script src="scripts/admin.js"></script>
+</head>
+<body>
+<h2>Admin Login</h2>
+<form id="loginForm">
+  <input type="text" id="username" placeholder="Username" required><br>
+  <input type="password" id="password" placeholder="Password" required><br>
+  <button type="submit">Login</button>
+</form>
+<script>
+document.getElementById('loginForm').addEventListener('submit', loginAdmin);
+</script>
+</body>
+</html>
